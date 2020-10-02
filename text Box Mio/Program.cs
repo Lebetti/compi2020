@@ -14,7 +14,6 @@ namespace at.jku.ssw.cc //Compilador
         //static int i, j;
         public static void Main1(string progr) //string[] args)
         {
-            int a;
             Parser.inicializaCil();
 
             /* Quitar los comentarios para que funcione el Scanner */
