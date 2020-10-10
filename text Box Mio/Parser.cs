@@ -194,6 +194,7 @@ namespace at.jku.ssw.cc
         public static Token token;    // last recognized token
         public static Token laToken;  // lookahead token (not yet recognized)
         static int la;         // shortcut to kind attribute of lookahead token (laToken.kind)
+        static bool band = false;
 
         /* Symbol table object of currently compiled method. */
         internal static Symbol curMethod;
@@ -201,11 +202,21 @@ namespace at.jku.ssw.cc
         /* Special Label to represent an undefined break destination. */
         //static readonly Label undef;
 
+
         /* Reads ahead one symbol. */
         static void Scan()
         {
             token = laToken;
             laToken = Scanner.Next();
+            if (band)
+            {
+                Program1.form1.tokensTreeView.Nodes.Add("Token:" + token.str);
+            }
+            else
+            {
+                band = true;
+            }
+
             //La 1° vez q se ejecuta, token queda con Token(1, 1), laToken con "class" (primer token del programa)
             la = laToken.kind;
         }
