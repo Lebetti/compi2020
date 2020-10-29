@@ -210,12 +210,22 @@ namespace at.jku.ssw.cc
             laToken = Scanner.Next();
             if (band)
             {
-                Program1.form1.tokensTreeView.Nodes.Add("Token:" + token.str);
+                if(token.kind!=40)
+                {
+                    MessageBoxCon3Preg();
+                    Program1.form1.tokensTreeView.Nodes.Insert(0,"Token:" + token.str + "  kind: " + token.kind);
+                }
+                else
+                {
+                    band = false;
+                }
             }
             else
             {
                 band = true;
             }
+
+
 
             //La 1° vez q se ejecuta, token queda con Token(1, 1), laToken con "class" (primer token del programa)
             la = laToken.kind;

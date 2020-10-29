@@ -155,7 +155,7 @@ public class Scanner {
                     t.str = "++";
                 }
                 else
-                    t.kind = Token.PLUS; t.str = ch.ToString();
+                    t.kind = Token.PLUS; t.str = "+";
                 break;
             case '-': NextCh();
                 if (ch == '-')
@@ -165,7 +165,7 @@ public class Scanner {
                     t.str = "--";
                 }
                 else
-                { t.kind = Token.MINUS; t.str = ch.ToString(); }
+                { t.kind = Token.MINUS; t.str = "-"; }
                 break;
             case '&': NextCh();
                 if (ch == '&')

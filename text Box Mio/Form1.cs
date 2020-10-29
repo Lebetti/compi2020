@@ -1434,9 +1434,13 @@ namespace at.jku.ssw.cc //Compilador //text_Box_Mio
 
         private void tokensToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Parser.muestraProducciones = true;
             tabControl1.SelectedIndex = 3;
+            Program1.form1.tokensTreeView.Nodes.Clear();
             inicializa();
             compilar();
+            
+            
         }
 
         private void acercaToolStripMenuItem_Click(object sender, EventArgs e)

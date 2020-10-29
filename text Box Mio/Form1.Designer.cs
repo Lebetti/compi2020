@@ -487,35 +487,35 @@
             // árbolDeDerivaciónToolStripMenuItem
             // 
             this.árbolDeDerivaciónToolStripMenuItem.Name = "árbolDeDerivaciónToolStripMenuItem";
-            this.árbolDeDerivaciónToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.árbolDeDerivaciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.árbolDeDerivaciónToolStripMenuItem.Text = "Árbol de Derivación";
             this.árbolDeDerivaciónToolStripMenuItem.Click += new System.EventHandler(this.árbolDeDerivaciónToolStripMenuItem_Click);
             // 
             // tablaDeSímbolosToolStripMenuItem
             // 
             this.tablaDeSímbolosToolStripMenuItem.Name = "tablaDeSímbolosToolStripMenuItem";
-            this.tablaDeSímbolosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.tablaDeSímbolosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tablaDeSímbolosToolStripMenuItem.Text = "Tabla de Símbolos";
             this.tablaDeSímbolosToolStripMenuItem.Click += new System.EventHandler(this.tablaDeSímbolosToolStripMenuItem_Click);
             // 
             // instruccionesToolStripMenuItem
             // 
             this.instruccionesToolStripMenuItem.Name = "instruccionesToolStripMenuItem";
-            this.instruccionesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.instruccionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.instruccionesToolStripMenuItem.Text = "Instrucciones";
             this.instruccionesToolStripMenuItem.Click += new System.EventHandler(this.instruccionesToolStripMenuItem_Click);
             // 
             // gramaticaToolStripMenuItem
             // 
             this.gramaticaToolStripMenuItem.Name = "gramaticaToolStripMenuItem";
-            this.gramaticaToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.gramaticaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gramaticaToolStripMenuItem.Text = "Gramatica";
             this.gramaticaToolStripMenuItem.Click += new System.EventHandler(this.gramaticaToolStripMenuItem_Click);
             // 
             // tokensToolStripMenuItem
             // 
             this.tokensToolStripMenuItem.Name = "tokensToolStripMenuItem";
-            this.tokensToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.tokensToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tokensToolStripMenuItem.Text = "Tokens";
             this.tokensToolStripMenuItem.Click += new System.EventHandler(this.tokensToolStripMenuItem_Click);
             // 
@@ -760,9 +760,10 @@
             // 
             // tokensTreeView
             // 
-            this.tokensTreeView.Location = new System.Drawing.Point(0, 0);
+            this.tokensTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tokensTreeView.Location = new System.Drawing.Point(3, 3);
             this.tokensTreeView.Name = "tokensTreeView";
-            this.tokensTreeView.Size = new System.Drawing.Size(528, 572);
+            this.tokensTreeView.Size = new System.Drawing.Size(522, 562);
             this.tokensTreeView.TabIndex = 0;
             this.tokensTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tokensTreeView_AfterSelect);
             // 
