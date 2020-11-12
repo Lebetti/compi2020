@@ -1434,7 +1434,8 @@ namespace at.jku.ssw.cc //Compilador //text_Box_Mio
 
         private void tokensToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Parser.muestraProducciones = true;
+            Parser.muestraProducciones = false;
+            Parser.muestraTokens = true;
             tabControl1.SelectedIndex = 3;
             Program1.form1.tokensTreeView.Nodes.Clear();
             inicializa();

@@ -62,6 +62,7 @@ namespace at.jku.ssw.cc
         public static FrmContinuarMaqVirtual mensMaqVirtual = new FrmContinuarMaqVirtual();
 
         public static bool muestraProducciones = true;
+        public static bool muestraTokens = false;
         public static bool muestraCargaDeInstrs = true;
         public static bool ejecuta = false;
 
@@ -75,7 +76,7 @@ namespace at.jku.ssw.cc
         {
             if (muestraProducciones)
             {
-                //Program1.form1.instContinuar.ShowDialog();
+                Program1.form1.instContinuar.ShowDialog();
                 if (ultimoNodo.IsVisible == false) ultimoNodo.EnsureVisible();
                 if (ultimoNodo.LastNode != null) ultimoNodo.LastNode.EnsureVisible();
             }
@@ -212,8 +213,15 @@ namespace at.jku.ssw.cc
             {
                 if(token.kind!=40)
                 {
-                    MessageBoxCon3Preg();
-                    Program1.form1.tokensTreeView.Nodes.Insert(0,"Token:" + token.str + "  kind: " + token.kind);
+                    if(muestraTokens)
+                    {
+                        Program1.form1.instContinuar.ShowDialog();
+                        Program1.form1.tokensTreeView.Nodes.Insert(0,"Token:" + token.str + "  kind: " + token.kind);
+                    }
+                    else
+                    {
+                        Program1.form1.tokensTreeView.Nodes.Insert(0, "Token:" + token.str + "  kind: " + token.kind);
+                    }
                 }
                 else
                 {
@@ -250,7 +258,7 @@ namespace at.jku.ssw.cc
             Parser.MessageBoxCon3Preg();
             program.Nodes.Add("class");
             program.ExpandAll(); //Visualiza (Expande) hijo de Program
-            Parser.MessageBoxCon3Preg();
+            
             //antes del Check (Token.CLASS), token = ...(1,1),  laToken = ..."class".. y la = Token.CLASS
             Check(Token.CLASS);   //class ProgrPpal
             //Se cumple que:  (la == expected) => ejecuta Scan => token = ..."class"... y laToden = ..."ProgrPpal" 
@@ -258,7 +266,7 @@ namespace at.jku.ssw.cc
             //"Program = 'class' ident PosDeclars '{' MethodDeclsOpc '}'."
             //Ya reconoció 'class', ahora va a reconocer ident
             program.Nodes.Add("ident");
-            Parser.MessageBoxCon3Preg();
+
             Check(Token.IDENT); // "ProgrPpal" => debo insertar el token en la tabla de símbolos
             // es el comienzo del programa y abrir un nuevo alcance
             //Ahora token = "ProgrPpal" y laToken = "{"
@@ -331,7 +339,6 @@ namespace at.jku.ssw.cc
             {
                 posDeclars.Nodes.Add(".");
                 posDeclars.ExpandAll(); //Visualiza (Expande) posDeclars
-                Parser.MessageBoxCon3Preg();
             }
             if (ZZ.parser)
             {
@@ -495,9 +502,10 @@ namespace at.jku.ssw.cc
             }
             else
             {
-                MessageBoxCon3Preg();
+                
                 identifieropc.Nodes.Add(".");
                 identifieropc.ExpandAll();
+                MessageBoxCon3Preg();
             }
         }//Fin Identifieropc
 
@@ -521,20 +529,19 @@ namespace at.jku.ssw.cc
             //Table en el caso de Table val;
             //int en int x;
             //-------------------------------------------------Grupo 2 28/9/2015----------------------------------------------------------------------- 
+            MessageBoxCon3Preg();
             Code.Colorear("token");
             hijo1.Nodes.Add("ident");
             hijo1.ExpandAll();
-            MessageBoxCon3Preg();
-            Code.seleccLaProdEnLaGram(12);
             //-------------------------------------------------Grupo 2 28/9/2015----------------------------------------------------------------------- 
             System.Windows.Forms.TreeNode lbrakopc = new System.Windows.Forms.TreeNode("LbrakeOpc");
             MessageBoxCon3Preg();
             hijo1.Nodes.Add(lbrakopc);
+            MessageBoxCon3Preg();
             Code.seleccLaProdEnLaGram(13);
             MessageBoxCon3Preg();
             Code.Colorear("latoken");
             //-------------------------------------------------Grupo 2 28/9/2015----------------------------------------------------------------------- 
-            MessageBoxCon3Preg();
             lbrakopc.Nodes.Add(".");
             lbrakopc.ExpandAll();
             MessageBoxCon3Preg();
@@ -543,6 +550,7 @@ namespace at.jku.ssw.cc
             //-------------------------------------------------Grupo 2 28/9/2015----------------------------------------------------------------------- 
             Check(Token.IDENT); // "pos", en int pos,   .....int,....  x, i, etc
             Code.seleccLaProdEnLaGram(6);
+            MessageBoxCon3Preg();
             padre.Nodes.Add("ident");// Hace referencia a la x
             MessageBoxCon3Preg();
             Code.Colorear("token"); 
@@ -559,13 +567,15 @@ namespace at.jku.ssw.cc
             Code.CreateMetadata(vble); //Para el campo pos (en int[] pos)Global, Field o .....  
             //o Para la vbe Global val
             //o para x en int x;
+            MessageBoxCon3Preg();
             Code.seleccLaProdEnLaGram(7);
-            Identifieropc(hijo2, type, kind);
+            MessageBoxCon3Preg();
             Code.Colorear("latoken"); 
             Check(Token.SEMICOLON);
-            MessageBoxCon3Preg();
+            Identifieropc(hijo2, type, kind);
             Code.seleccLaProdEnLaGram(6);
             Code.Colorear("token");
+            MessageBoxCon3Preg();
             padre.Nodes.Add("';'");
             MessageBoxCon3Preg();
             Code.seleccLaProdEnLaGram(8);
@@ -661,6 +671,7 @@ namespace at.jku.ssw.cc
                     MessageBoxCon3Preg();
                     Code.seleccLaProdEnLaGram(8);
                     type = Tab.noType; //  para void
+                    MessageBoxCon3Preg();
                 }
                 else
                     if (la == Token.IDENT)
@@ -704,9 +715,11 @@ namespace at.jku.ssw.cc
                     //infiere que no hay params => 1) debe venir un ")". 2) La pocion de la produccion es "."
                     Code.Colorear("latoken");  //pinta el ")"
                     Check(Token.RPAR);
-                    Code.seleccLaProdEnLaGram(8);
                     pars.Nodes.Add(".");
                     pars.ExpandAll();
+                    MessageBoxCon3Preg();
+                    Code.seleccLaProdEnLaGram(8);
+                    MessageBoxCon3Preg();
                     methodDecl.Nodes.Add("')'");
                     MessageBoxCon3Preg();
                 }
@@ -733,6 +746,7 @@ namespace at.jku.ssw.cc
                             posDeclars.ExpandAll();
                             MessageBoxCon3Preg();
                             Code.seleccLaProdEnLaGram(2);
+                            MessageBoxCon3Preg();
                             System.Windows.Forms.TreeNode varDecl = new System.Windows.Forms.TreeNode("VarDecl");
                             declaration.Nodes.Add(varDecl);
                             declaration.ExpandAll();
@@ -763,9 +777,10 @@ namespace at.jku.ssw.cc
                 Code.seleccLaProdEnLaGram(1);
                 MessageBoxCon3Preg();
                 System.Windows.Forms.TreeNode posDeclarsAux = new System.Windows.Forms.TreeNode("PosDeclars");
+                posDeclars.Nodes.Add(posDeclarsAux);
+                MessageBoxCon3Preg();
                 posDeclarsAux.Nodes.Add(".");
                 posDeclarsAux.ExpandAll();
-                posDeclars.Nodes.Add(posDeclarsAux);
                 Code.Colorear("latoken");  //"{"
                 MessageBoxCon3Preg();
                 Code.seleccLaProdEnLaGram(8);
