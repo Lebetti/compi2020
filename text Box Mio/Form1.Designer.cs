@@ -265,6 +265,7 @@
             // 
             this.richTextBox7.BackColor = System.Drawing.Color.White;
             this.richTextBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox7.Location = new System.Drawing.Point(3, 3);
             this.richTextBox7.Name = "richTextBox7";
             this.richTextBox7.ReadOnly = true;
@@ -487,35 +488,35 @@
             // árbolDeDerivaciónToolStripMenuItem
             // 
             this.árbolDeDerivaciónToolStripMenuItem.Name = "árbolDeDerivaciónToolStripMenuItem";
-            this.árbolDeDerivaciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.árbolDeDerivaciónToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.árbolDeDerivaciónToolStripMenuItem.Text = "Árbol de Derivación";
             this.árbolDeDerivaciónToolStripMenuItem.Click += new System.EventHandler(this.árbolDeDerivaciónToolStripMenuItem_Click);
             // 
             // tablaDeSímbolosToolStripMenuItem
             // 
             this.tablaDeSímbolosToolStripMenuItem.Name = "tablaDeSímbolosToolStripMenuItem";
-            this.tablaDeSímbolosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tablaDeSímbolosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.tablaDeSímbolosToolStripMenuItem.Text = "Tabla de Símbolos";
             this.tablaDeSímbolosToolStripMenuItem.Click += new System.EventHandler(this.tablaDeSímbolosToolStripMenuItem_Click);
             // 
             // instruccionesToolStripMenuItem
             // 
             this.instruccionesToolStripMenuItem.Name = "instruccionesToolStripMenuItem";
-            this.instruccionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.instruccionesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.instruccionesToolStripMenuItem.Text = "Instrucciones";
             this.instruccionesToolStripMenuItem.Click += new System.EventHandler(this.instruccionesToolStripMenuItem_Click);
             // 
             // gramaticaToolStripMenuItem
             // 
             this.gramaticaToolStripMenuItem.Name = "gramaticaToolStripMenuItem";
-            this.gramaticaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gramaticaToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.gramaticaToolStripMenuItem.Text = "Gramatica";
             this.gramaticaToolStripMenuItem.Click += new System.EventHandler(this.gramaticaToolStripMenuItem_Click);
             // 
             // tokensToolStripMenuItem
             // 
             this.tokensToolStripMenuItem.Name = "tokensToolStripMenuItem";
-            this.tokensToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tokensToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.tokensToolStripMenuItem.Text = "Tokens";
             this.tokensToolStripMenuItem.Click += new System.EventHandler(this.tokensToolStripMenuItem_Click);
             // 
@@ -692,6 +693,7 @@
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.FullRowSelect = true;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";

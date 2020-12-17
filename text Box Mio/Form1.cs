@@ -1211,6 +1211,7 @@ namespace at.jku.ssw.cc //Compilador //text_Box_Mio
             //Parser.ejecuta = false;
             //  Tab.muestraTabSimb = Program1.form1.richTextBox10.Visible = false;
             Program1.form1.treeView1.ExpandAll();
+
         }
 
         private void tablaDeSímbolosToolStripMenuItem_Click(object sender, EventArgs e)

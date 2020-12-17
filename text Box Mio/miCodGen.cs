@@ -189,6 +189,21 @@ namespace at.jku.ssw.cc
         /// </summary>
         /// <param name="colorearToken"></param>
 
+        public static void ColoreaPuntoComa()
+        {
+            int linea1 = -1; int col1 = -1;
+            int sizeToken1 = -1; ;
+            Program1.form1.Editor.SelectionColor = System.Drawing.Color.Red;
+            linea1 = Parser.laToken.line; col1 = Parser.laToken.col;
+            if (Parser.laToken.str == null) sizeToken1 = 1;
+            else sizeToken1 = Parser.laToken.str.Length;
+            Program1.form1.Editor.Select(Program1.form1.Editor.GetFirstCharIndexFromLine(linea1 - 1) + col1 - 1, sizeToken1);
+            Program1.form1.Editor.SelectionFont =
+          new Font(Program1.form1.Editor.Font.FontFamily,
+                   Program1.form1.Editor.Font.Size, FontStyle.Bold);
+            Parser.yaPintada = true;
+        }
+
         public static void Colorear(string pintar)
         {
             int linea1 = -1; int col1 = -1;
@@ -262,6 +277,8 @@ namespace at.jku.ssw.cc
                 actual = actual.Nodes[actual.Nodes.Count - 1].LastNode;
             }
             previo.Nodes.Add("( " + instrConNroLinea + " )");//previo quedo con el ultimo nodo expandido
+
+            previo.Nodes[previo.Nodes.Count - 1].EnsureVisible();
             //Grupo 2 FIN 301cargaInstr
             string texto = Program1.form1.richTextBox3.Text;
             Program1.form1.richTextBox3.SelectionStart = texto.Length;
